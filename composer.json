@@ -1,0 +1,12 @@
+{
+  "name" : "GreenRiverDev/328/Dating",
+  "authors" : [
+    {
+      "name": "William Wittig",
+      "email": "wittig.william@student.greenriver.edu"
+    }
+  ],
+  "require" : {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
