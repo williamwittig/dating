@@ -3,7 +3,29 @@
     width: 100%;
 }
 
+#warningBox {
+    width: 30%;
+    margin: 30px 50px 0 50px;
+}
+
 /* ---------- Classes ---------- */
+.btn-nxt {
+    width: 75px !important;
+}
+
 .container {
     margin: 50px auto !important;
+}
+
+.warningMsg {
+    background-color: lightgrey;
+}
+
+.column2 {
+    width: 40%;
+    margin: 0 50px 0 50px;
+}
+
+.bioArea {
+    width: 100%;
 }

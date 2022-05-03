@@ -1,0 +1,55 @@
+<include href="views/header.html"></include>
+
+<!--Form Section-->
+<form method="post" action="profile" class="form-horizontal m-5 p-4 border rounded">
+    <div class="d-block">
+        <h1>Personal Information</h1>
+        <hr>
+    </div>
+
+    <!--Main Section-->
+    <div class="d-flex">
+        <!--Left Box-->
+        <div class="d-flex flex-column flex-grow-1 justify-content-start">
+            <div class="form-group">
+                <label><b>First Name</b></label>
+                <input type="text" class="form-control" name="fname">
+            </div>
+            <div class="form-group mt-2">
+                <label><b>Last Name</b></label>
+                <input type="text" class="form-control" name="lname">
+            </div>
+            <div class="form-group mt-2">
+                <label><b>Age</b></label>
+                <input type="text" class="form-control" name="age">
+            </div>
+            <label class="mt-2"><b>Gender Options</b></label>
+            <div class="form-check form-check-inline mt-2">
+                <input name="genderOptions" type="radio" id="male" class="form-check-input" value="Male">
+                <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-check-inline mt-2">
+                <input name="genderOptions" type="radio" id="female" class="form-check-input" value="Female">
+                <label class="form-check-label" for="female">Female</label>
+            </div>
+            <div class="form-check form-check-inline mt-2 mb-2">
+                <input name="genderOptions" type="radio" id="nonBinary" class="form-check-input" value="Non-Binary">
+                <label class="form-check-label" for="nonBinary">Non-Binary</label>
+            </div>
+            <div class="form-group">
+                <label><b>Phone Number</b></label>
+                <input type="text" class="form-control" name="phoneNum">
+            </div>
+        </div>
+
+        <!--Right Box-->
+        <div id="warningBox" class="d-flex flex-column">
+            <div class="border border-dark rounded mb-5 p-2 align-self-start warningMsg">
+                <p><b>Note: </b>All information entered is protected by our privacy policy. Profile
+                information can only be viewed by others with your permission.</p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-nxt align-self-end mt-auto">Next ></button>
+        </div>
+    </div>
+</form>
+<include href="views/js.html"></include>
