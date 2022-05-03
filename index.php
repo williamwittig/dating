@@ -1,10 +1,3 @@
-<!--
-Author: William Wittig
-Filename: index.php
-Version: 1.0
-Description: This is the controller for the dating site
--->
-
 <?php
 // Turn on error reporting
 ini_set('display_errors', 1);
