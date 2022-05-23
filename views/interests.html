@@ -8,7 +8,7 @@ Description: This is the interests page for the dating site
 <include href="views/header.html"></include>
 
 <!--Form Section-->
-<form method="post" action="profileSummary" class="form-horizontal m-5 p-4 border rounded">
+<form method="post" action="#" class="form-horizontal m-5 p-4 border rounded">
     <div class="d-block">
         <h1>Interests</h1>
         <hr>
@@ -21,80 +21,35 @@ Description: This is the interests page for the dating site
             <b>In-door Interests</b>
         </label>
         <div class="p-2">
-            <div class="m-1">
-                <div class="form-check form-check-inline col-2 offset-1">
-                    <input name="indoorInterests[]" type="checkbox" id="tv" class="form-check-input" value="TV">
-                    <label class="form-check-label" for="tv">TV</label>
-                </div>
-                <div class="form-check form-check-inline col-2">
-                    <input name="indoorInterests[]" type="checkbox" id="movies" class="form-check-input" value="Movies">
-                    <label class="form-check-label" for="movies">Movies</label>
-                </div>
-                <div class="form-check form-check-inline col-2">
-                    <input name="indoorInterests[]" type="checkbox" id="cooking" class="form-check-input" value="Cooking">
-                    <label class="form-check-label" for="cooking">Cooking</label>
-                </div>
-                <div class="form-check form-check-inline col-2">
-                    <input name="indoorInterests[]" type="checkbox" id="boardGames" class="form-check-input" value="Board Games">
-                    <label class="form-check-label" for="boardGames">Board Games</label>
-                </div>
-            </div>
-            <div class="m-1">
-                <div class="form-check form-check-inline col-2 offset-1">
-                    <input name="indoorInterests[]" type="checkbox" id="puzzles" class="form-check-input" value="Puzzles">
-                    <label class="form-check-label" for="puzzles">Puzzles</label>
-                </div>
-                <div class="form-check form-check-inline col-2">
-                    <input name="indoorInterests[]" type="checkbox" id="reading" class="form-check-input" value="Reading">
-                    <label class="form-check-label" for="reading">Reading</label>
-                </div>
-                <div class="form-check form-check-inline col-2">
-                    <input name="indoorInterests[]" type="checkbox" id="playingCards" class="form-check-input" value="Playing Cards">
-                    <label class="form-check-label" for="playingCards">Playing Cards</label>
-                </div>
-                <div class="form-check form-check-inline col-2">
-                    <input name="indoorInterests[]" type="checkbox" id="videoGames" class="form-check-input" value="Video Games">
-                    <label class="form-check-label" for="videoGames">Video Games</label>
-                </div>
-            </div>
+            <repeat group="{{ @indoorInterests }}" value="{{ @indoorInterest }}">
+                <label class="m-3">
+                    <input type="checkbox" name="indoorInterests[]" value="{{ @indoorInterest }}">
+                    {{ ucfirst(@indoorInterest) }}
+                </label>
+            </repeat>
         </div>
+        <check if="{{ isset(@errors['indoorInterests']) }}">
+            <span class="text-danger mb-3">{{ @errors['indoorInterests'] }}</span>
+        </check>
 
         <!--Outdoor Interests Box-->
         <label class="d-block">
             <b>Out-door Interests</b>
         </label>
         <div class="p-2">
-            <div class="m-1">
-                <div class="form-check form-check-inline col-2 offset-1">
-                    <input name="outdoorInterests[]" type="checkbox" id="hiking" class="form-check-input" value="Hiking">
-                    <label class="form-check-label" for="hiking">Hiking</label>
-                </div>
-                <div class="form-check form-check-inline col-2">
-                    <input name="outdoorInterests[]" type="checkbox" id="biking" class="form-check-input" value="Biking">
-                    <label class="form-check-label" for="biking">Biking</label>
-                </div>
-                <div class="form-check form-check-inline col-2">
-                    <input name="outdoorInterests[]" type="checkbox" id="swimming" class="form-check-input" value="Swimming">
-                    <label class="form-check-label" for="swimming">Swimming</label>
-                </div>
-                <div class="form-check form-check-inline col-2">
-                    <input name="outdoorInterests[]" type="checkbox" id="collecting" class="form-check-input" value="Collecting">
-                    <label class="form-check-label" for="collecting">Collecting</label>
-                </div>
-            </div>
-            <div class="m-1">
-                <div class="form-check form-check-inline col-2 offset-1">
-                    <input name="outdoorInterests[]" type="checkbox" id="walking" class="form-check-input" value="Walking">
-                    <label class="form-check-label" for="walking">Walking</label>
-                </div>
-                <div class="form-check form-check-inline col-2">
-                    <input name="outdoorInterests[]" type="checkbox" id="climbing" class="form-check-input" value="Climbing">
-                    <label class="form-check-label" for="climbing">Climbing</label>
-                </div>
-            </div>
-            <div class="d-flex flex-column">
-                <button type="submit" class="btn btn-primary btn-nxt align-self-end">Next ></button>
-            </div>
+            <repeat group="{{ @outdoorInterests }}" value="{{ @outdoorInterest }}">
+                <label class="m-3">
+                    <input type="checkbox" name="outdoorInterests[]" value="{{ @outdoorInterest }}">
+                    {{ ucfirst(@outdoorInterest) }}
+                </label>
+            </repeat>
+        </div>
+        <check if="{{ isset(@errors['outdoorInterests']) }}">
+            <span class="text-danger">{{ @errors['outdoorInterests'] }}</span>
+        </check>
+
+        <div class="d-flex flex-column">
+            <button type="submit" class="btn btn-primary btn-nxt align-self-end">Next ></button>
         </div>
     </div>
 </form>

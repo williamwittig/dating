@@ -8,7 +8,7 @@ Description: This is the personal information page for the dating site
 <include href="views/header.html"></include>
 
 <!--Form Section-->
-<form method="post" action="profile" class="form-horizontal m-5 p-4 border rounded">
+<form method="post" action="#" class="form-horizontal m-5 p-4 border rounded">
     <div class="d-block">
         <h1>Personal Information</h1>
         <hr>
@@ -20,32 +20,47 @@ Description: This is the personal information page for the dating site
         <div class="d-flex flex-column flex-grow-1 justify-content-start">
             <div class="form-group">
                 <label><b>First Name</b></label>
-                <input type="text" class="form-control" name="fname">
+                <input type="text" class="form-control" name="fname" value="{{ @SESSION['fname'] }}">
+
+                <check if="{{ isset(@errors['fname']) }}">
+                    <span class="text-danger">{{ @errors['fname'] }}</span>
+                </check>
             </div>
             <div class="form-group mt-2">
                 <label><b>Last Name</b></label>
-                <input type="text" class="form-control" name="lname">
+                <input type="text" class="form-control" name="lname" value="{{ @SESSION['lname'] }}">
+
+                <check if="{{ isset(@errors['lname']) }}">
+                    <span class="text-danger">{{ @errors['lname'] }}</span>
+                </check>
             </div>
             <div class="form-group mt-2">
                 <label><b>Age</b></label>
-                <input type="text" class="form-control" name="age">
+                <input type="text" class="form-control" name="age" value="{{ @SESSION['age'] }}">
+
+                <check if="{{ isset(@errors['age']) }}">
+                    <span class="text-danger">{{ @errors['age'] }}</span>
+                </check>
             </div>
+
             <label class="mt-2"><b>Gender Options</b></label>
-            <div class="form-check form-check-inline mt-2">
-                <input name="genderOptions" type="radio" id="male" class="form-check-input" value="Male">
-                <label class="form-check-label" for="male">Male</label>
-            </div>
-            <div class="form-check form-check-inline mt-2">
-                <input name="genderOptions" type="radio" id="female" class="form-check-input" value="Female">
-                <label class="form-check-label" for="female">Female</label>
-            </div>
-            <div class="form-check form-check-inline mt-2 mb-2">
-                <input name="genderOptions" type="radio" id="nonBinary" class="form-check-input" value="Non-Binary">
-                <label class="form-check-label" for="nonBinary">Non-Binary</label>
-            </div>
-            <div class="form-group">
+            <repeat group="{{ @genders }}" value="{{ @gender }}">
+                <div class="form-check form-check-inline mt-2">
+                    <label class="form-check-label">
+                        <input type="radio" name="genderOptions" class="form-check-input" value="{{ @gender }}"
+                            <check if="{{ @gender == $_SESSION['genderOptions'] }}">checked="checked"</check>
+                        >
+                    {{ ucfirst(@gender) }}</label>
+                </div>
+            </repeat>
+
+            <div class="form-group mt-2">
                 <label><b>Phone Number</b></label>
-                <input type="text" class="form-control" name="phoneNum">
+                <input type="text" class="form-control" id="phoneNum" name="phoneNum" value="{{ @SESSION['phoneNum'] }}">
+
+                <check if="{{ isset(@errors['phoneNum']) }}">
+                    <span class="text-danger">{{ @errors['phoneNum'] }}</span>
+                </check>
             </div>
         </div>
 
@@ -55,6 +70,8 @@ Description: This is the personal information page for the dating site
                 <p><b>Note: </b>All information entered is protected by our privacy policy. Profile
                 information can only be viewed by others with your permission.</p>
             </div>
+            <!-- Add button to a column and add an offset to put it to the right -->
+            <!-- Create row / columns to have each page appear uniformly on each page -->
             <button type="submit" class="btn btn-primary btn-nxt align-self-end mt-auto">Next ></button>
         </div>
     </div>
