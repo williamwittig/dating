@@ -19,6 +19,7 @@ Description: This is the personal information page for the dating site
         <!--Left Box-->
         <div class="d-flex flex-column flex-grow-1 justify-content-start">
             <div class="form-group">
+                <!--Input with sticky-->
                 <label><b>First Name</b></label>
                 <input type="text" class="form-control" name="fname" value="{{ @SESSION['fname'] }}">
 
@@ -26,7 +27,9 @@ Description: This is the personal information page for the dating site
                     <span class="text-danger">{{ @errors['fname'] }}</span>
                 </check>
             </div>
+
             <div class="form-group mt-2">
+                <!--Input with sticky-->
                 <label><b>Last Name</b></label>
                 <input type="text" class="form-control" name="lname" value="{{ @SESSION['lname'] }}">
 
@@ -34,7 +37,9 @@ Description: This is the personal information page for the dating site
                     <span class="text-danger">{{ @errors['lname'] }}</span>
                 </check>
             </div>
+
             <div class="form-group mt-2">
+                <!--Input with sticky-->
                 <label><b>Age</b></label>
                 <input type="text" class="form-control" name="age" value="{{ @SESSION['age'] }}">
 
@@ -45,6 +50,7 @@ Description: This is the personal information page for the dating site
 
             <label class="mt-2"><b>Gender Options</b></label>
             <repeat group="{{ @genders }}" value="{{ @gender }}">
+                <!--Input with sticky-->
                 <div class="form-check form-check-inline mt-2">
                     <label class="form-check-label">
                         <input type="radio" name="genderOptions" class="form-check-input" value="{{ @gender }}"
@@ -56,6 +62,7 @@ Description: This is the personal information page for the dating site
 
             <div class="form-group mt-2">
                 <label><b>Phone Number</b></label>
+                <!--Input with sticky-->
                 <input type="text" class="form-control" id="phoneNum" name="phoneNum" value="{{ @SESSION['phoneNum'] }}">
 
                 <check if="{{ isset(@errors['phoneNum']) }}">

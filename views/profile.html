@@ -22,6 +22,7 @@ Description: This is the profile page for the dating site
                 <label>
                     <b>Email</b>
                 </label>
+                <!--Input with sticky-->
                 <input name="email" type="text" class="form-control" placeholder="my_email@email.com"
                        value="{{ @SESSION['email'] }}">
 
@@ -38,6 +39,7 @@ Description: This is the profile page for the dating site
 
                 <select name="state" class="form-select" aria-label="Default select example">
                     <option>Select a state</option>
+                    <!--Input with sticky option-->
                     <repeat group="{{ @states }}" value="{{ @state }}">
                         <option
                         <check if="{{ @state == $_SESSION['state'] }}"> Selected </check>
@@ -52,6 +54,7 @@ Description: This is the profile page for the dating site
             <repeat group="{{ @genders }}" value="{{ @gender }}">
                 <div class="form-check form-check-inline mt-2">
                     <label class="form-check-label">
+                        <!--Input with sticky radio box-->
                         <input name="seekingOptions" type="radio" class="form-check-input"
                                value="{{ @gender }}"
                         <check if="{{ @gender == $_SESSION['seekingOptions'] }}">checked="checked"</check>
