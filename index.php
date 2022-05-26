@@ -8,10 +8,14 @@ require_once('vendor/autoload.php');
 require_once('model/data-layer.php');
 require_once('model/validation.php');
 
+// Start the session
+session_start();
+
 // Create instance of the base class
 $f3 = Base::instance();
 
-session_start();
+// Creating an instance of the controller class
+$con = new Controller($f3);
 
 // Define a default route
 // Home page rendering
@@ -31,30 +35,45 @@ $f3->route('GET|POST /personalInfo', function($f3) {
 		// ----- Validation -----
 		// First name
 		if (isset($_POST['fname']) && validName($_POST['fname'])) {
-			$_SESSION['fname'] = $_POST['fname'];
+			$fname = $_POST['fname'];
 		} else {
 			$f3->set('errors["fname"]', 'Please enter a first name.');
 		}
 
 		// Last name
 		if (isset($_POST['lname']) && validName($_POST['lname'])) {
-			$_SESSION['lname'] = $_POST['lname'];
+			$lname = $_POST['lname'];
 		} else {
 			$f3->set('errors["lname"]', 'Please enter a last name.');
 		}
 
 		// Age
 		if (isset($_POST['age']) && validAge($_POST['age'])) {
-			$_SESSION['age'] = $_POST['age'];
+			$age = $_POST['age'];
 		} else {
 			$f3->set('errors["age"]', 'Please enter an age.');
 		}
 
+		// Session variables (No validation needed)
+		$genderOptions = $_POST['genderOptions'];
+
 		// Phone number
 		if (isset($_POST['phoneNum']) && validPhone($_POST['phoneNum'])) {
-			$_SESSION['phoneNum'] = $_POST['phoneNum'];
+			$phoneNum = $_POST['phoneNum'];
 		} else {
 			$f3->set('errors["phoneNum"]', 'Please enter a valid phone number.');
+		}
+
+		if (isset($_POST['premium'])) {
+			$_SESSION['member'] = new PremiumMember("None", "None");
+			$_SESSION['member']->setFname($fname);
+			$_SESSION['member']->setLname($lname);
+			$_SESSION['member']->setAge($age);
+			$_SESSION['member']->setGender($genderOptions);
+			$_SESSION['member']->setPhone($phoneNum);
+		} else {
+			$_SESSION['member'] = new Member($fname, $lname, $age, $genderOptions,
+				$phoneNum);
 		}
 
 		// Redirect to profile summary if there are no errors
@@ -62,9 +81,6 @@ $f3->route('GET|POST /personalInfo', function($f3) {
 			header('location: profile');
 		}
 	}
-	// Session variables (No validation needed)
-	$_SESSION['genderOptions'] = $_POST['genderOptions'];
-
 	// For templating
 	$f3->set('genders', getGenders());
 
@@ -74,7 +90,7 @@ $f3->route('GET|POST /personalInfo', function($f3) {
 });
 
 $f3->route('GET|POST /profile', function($f3) {
-	// var_dump($_POST);
+	var_dump($_SESSION["member"]);
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// ----- Validation -----
