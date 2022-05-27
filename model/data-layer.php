@@ -1,30 +1,31 @@
 <?php
+class DataLayer {
+	// Get gender options
+	static function getGenders() {
+		return array("Male", "Female", "Non-Binary");
+	}
 
-// Get gender options
-function getGenders() {
-	return array("Male", "Female", "Non-Binary");
-}
+	// Get indoor interests
+	static function getIndoorInterests() {
+		return array("TV", "Movies", "Cooking", "Board Games", "Puzzles", "Reading",
+			"Playing Cards","Video Games");
+	}
 
-// Get indoor interests
-function getIndoorInterests() {
-	return array("TV", "Movies", "Cooking", "Board Games", "Puzzles", "Reading",
-		"Playing Cards", "Video Games");
-}
+	// Get outdoor interests
+	static function getOutdoorInterests() {
+		return array("Hiking", "Biking", "Swimming", "Collecting", "Walking", "Climbing");
+	}
 
-// Get outdoor interests
-function getOutdoorInterests() {
-	return array("Hiking", "Biking", "Swimming", "Collecting", "Walking", "Climbing");
-}
-
-// Get states
-function getStates() {
-	return array("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
-		"Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois",
-		"Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
-		"Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana",
-		"Nebraska", "New Hampshire", "New Jersey", "New Mexico", "New York",
-		"North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
-		"Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas",
-		"Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin",
-		"Wyoming");
+	// Get states
+	static function getStates() {
+		return array("Alabama","Alaska","Arizona","Arkansas","California","Colorado",
+			"Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois",
+			"Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland",
+			"Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana",
+			"Nebraska","New Hampshire","New Jersey","New Mexico","New York",
+			"North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania",
+			"Rhode Island","South Carolina","South Dakota","Tennessee","Texas",
+			"Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin",
+			"Wyoming");
+	}
 }
