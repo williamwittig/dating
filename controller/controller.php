@@ -1,14 +1,27 @@
 <?php
 
+/**
+ * This class controls the rendering and functionality of each page
+ * @author William Wittig
+ * @version 1.0
+ */
 class Controller
 {
 	private $_f3;
 
+	/**
+	 * This method constructs a controller object
+	 * @param $f3
+	 */
 	function __construct($f3)
 	{
 		$this->_f3 = $f3;
 	}
 
+	/**
+	 * Renders the home page
+	 * @return void
+	 */
 	function home()
 	{
 		// Render home page
@@ -19,6 +32,10 @@ class Controller
 		session_destroy();
 	}
 
+	/**
+	 * Renders the personal info page
+	 * @return void
+	 */
 	function personalInfo()
 	{
 		// If the form was posted
@@ -71,7 +88,7 @@ class Controller
 			// Creating member object
 			if (isset($_POST['premium'])) {
 				// Premium member
-				$member = new PremiumMember("None", "None");
+				$member = new PremiumMember([], []);
 				$member->setFname($fname);
 				$member->setLname($lname);
 				$member->setAge($age);
@@ -97,6 +114,10 @@ class Controller
 		echo $view->render('views/personalInfo.html');
 	}
 
+	/**
+	 * Renders the profile page
+	 * @return void
+	 */
 	function profile()
 	{
 		// If the form was posted
@@ -153,6 +174,10 @@ class Controller
 		echo $view->render('views/profile.html');
 	}
 
+	/**
+	 * Renders the interests page
+	 * @return void
+	 */
 	function interests()
 	{
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -204,12 +229,15 @@ class Controller
 		echo $view->render('views/interests.html');
 	}
 
+	/**
+	 * Renders the profile summary
+	 * @return void
+	 */
 	function profileSummary()
 	{
-		var_dump($_SESSION);
-
 		$view = new Template();
 		echo $view->render('views/profileSummary.html');
-		//session_destroy();
+
+		session_destroy();
 	}
 }
