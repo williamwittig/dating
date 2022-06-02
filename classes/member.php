@@ -1,6 +1,12 @@
 <?php
 
-class Member {
+/**
+ * This class creates a Member object
+ * @author William Wittig
+ * @version 1.0
+ */
+class Member
+{
 	private $_fname;
 	private $_lname;
 	private $_gender;
@@ -11,7 +17,17 @@ class Member {
 	private $_bio;
 	private $_age;
 
-	public function __construct($fname, $lname, $age, $gender, $phone) {
+	/**
+	 * This method constructs a member object
+	 * @param string $fname first name
+	 * @param string $lname last name
+	 * @param int $age the age of the user
+	 * @param string $gender the gender of the user
+	 * @param string $phone phone number
+	 */
+	public function __construct(string $fname, string $lname, int $age, string $gender,
+		string $phone)
+	{
 		$this->_fname = $fname;
 		$this->_lname = $lname;
 		$this->_age = $age;
@@ -20,128 +36,163 @@ class Member {
 	}
 
 	/**
-	 * @return String
+	 * Returns the first name of the user
+	 * @return String first name
 	 */
-	public function getFname(): string {
+	public function getFname(): string
+	{
 		return $this->_fname;
 	}
 
 	/**
-	 * @param String $fname
+	 * Sets the first name of the user
+	 * @param String $fname first name
 	 */
-	public function setFname(string $fname): void {
+	public function setFname(string $fname): void
+	{
 		$this->_fname=$fname;
 	}
 
 	/**
-	 * @return String
+	 * Returns the last name of the user
+	 * @return String last name
 	 */
-	public function getLname(): string {
+	public function getLname(): string
+	{
 		return $this->_lname;
 	}
 
 	/**
-	 * @param String $lname
+	 * Sets the last name of the user
+	 * @param String $lname last name
 	 */
-	public function setLname(string $lname): void {
+	public function setLname(string $lname): void
+	{
 		$this->_lname=$lname;
 	}
 
 	/**
-	 * @return String
+	 * Returns the gender input from the user
+	 * @return String gender
 	 */
-	public function getGender(): string {
+	public function getGender(): string
+	{
 		return $this->_gender;
 	}
 
-	/**
+	/** Sets the gender of the user to the input
 	 * @param String $gender
 	 */
-	public function setGender(string $gender): void {
+	public function setGender(string $gender): void
+	{
 		$this->_gender=$gender;
 	}
 
 	/**
-	 * @return String
+	 * Returns the phone number of the user
+	 * @return String phone number
 	 */
-	public function getPhone(): string {
+	public function getPhone(): string
+	{
 		return $this->_phone;
 	}
 
 	/**
+	 * Sets the phone number of the user
 	 * @param String $phone
 	 */
-	public function setPhone(string $phone): void {
+	public function setPhone(string $phone): void
+	{
 		$this->_phone=$phone;
 	}
 
 	/**
-	 * @return String
+	 * Returns the email of the user
+	 * @return String email
 	 */
-	public function getEmail(): string {
+	public function getEmail(): string
+	{
 		return $this->_email;
 	}
 
 	/**
+	 * Set the email of the user to the input
 	 * @param String $email
 	 */
-	public function setEmail(string $email): void {
+	public function setEmail(string $email): void
+	{
 		$this->_email=$email;
 	}
 
 	/**
-	 * @return String
+	 * Returns the state of the user
+	 * @return String state
 	 */
-	public function getState(): string {
+	public function getState(): string
+	{
 		return $this->_state;
 	}
 
 	/**
+	 * Sets the state of the user
 	 * @param String $state
 	 */
-	public function setState(string $state): void {
+	public function setState(string $state): void
+	{
 		$this->_state=$state;
 	}
 
 	/**
-	 * @return String
+	 * Returns the seeking choices of the user
+	 * @return String seeking choices
 	 */
-	public function getSeeking(): string {
+	public function getSeeking(): string
+	{
 		return $this->_seeking;
 	}
 
 	/**
+	 * Sets the seeking choices of the user
 	 * @param String $seeking
 	 */
-	public function setSeeking(string $seeking): void {
+	public function setSeeking(string $seeking): void
+	{
 		$this->_seeking=$seeking;
 	}
 
 	/**
-	 * @return String
+	 * Returns the bio of the user
+	 * @return String bio
 	 */
-	public function getBio(): string {
+	public function getBio(): string
+	{
 		return $this->_bio;
 	}
 
 	/**
+	 * Set the bio of the user
 	 * @param String $bio
 	 */
-	public function setBio(string $bio): void {
+	public function setBio(string $bio): void
+	{
 		$this->_bio=$bio;
 	}
 
 	/**
-	 * @return int
+	 * Returns the age of the user
+	 * @return int age
 	 */
-	public function getAge(): int {
+	public function getAge(): int
+	{
 		return $this->_age;
 	}
 
 	/**
+	 * Sets the age of the user
 	 * @param int $age
 	 */
-	public function setAge(int $age): void {
+	public function setAge(int $age): void
+	{
 		$this->_age=$age;
 	}
 }

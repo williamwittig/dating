@@ -1,54 +1,78 @@
 <?php
 
-class PremiumMember extends Member {
-	private $_inDoorInterests;
-	private $_outDoorInterests;
+/**
+ * This class creates a Premium Member object
+ * @author William Wittig
+ * @version 1.0
+ */
+class PremiumMember extends Member
+{
+	private $_inDoorInterests = [];
+	private $_outDoorInterests = [];
 	private $_profilePhoto;
 
-	public function __construct($inDoorInterests, $outDoorInterests) {
+	/**
+	 * This method constructs a premium member object
+	 * @param array $inDoorInterests Indoor interests of the user
+	 * @param array $outDoorInterests Outdoor interests of the user
+	 */
+	public function __construct(array $inDoorInterests, array $outDoorInterests)
+	{
 		$this->_inDoorInterests = $inDoorInterests;
 		$this->_outDoorInterests = $outDoorInterests;
 	}
 
 	/**
-	 * @return array
+	 * Returns the indoor interests of the user
+	 * @return array inDoorInterests
 	 */
-	public function getInDoorInterests(): array {
+	public function getInDoorInterests(): array
+	{
 		return $this->_inDoorInterests;
 	}
 
 	/**
-	 * @param array $inDoorInterests
+	 * Sets the indoor interests of the user
+	 * @param array inDoorInterests
 	 */
-	public function setInDoorInterests(array $inDoorInterests): void {
+	public function setInDoorInterests(array $inDoorInterests): void
+	{
 		$this->_inDoorInterests=$inDoorInterests;
 	}
 
 	/**
-	 * @return array
+	 * Returns the outdoor interests of the user
+	 * @return array outDoorInterests
 	 */
-	public function getOutDoorInterests(): array {
+	public function getOutDoorInterests(): array
+	{
 		return $this->_outDoorInterests;
 	}
 
 	/**
-	 * @param array $outDoorInterests
+	 * Sets the outdoor interests of the user
+	 * @param array outDoorInterests
 	 */
-	public function setOutDoorInterests(array $outDoorInterests): void {
+	public function setOutDoorInterests(array $outDoorInterests): void
+	{
 		$this->_outDoorInterests=$outDoorInterests;
 	}
 
 	/**
-	 * @return String
+	 * Returns the profile image of the user
+	 * @return String profilePhoto
 	 */
-	public function getProfilePhoto(): string {
+	public function getProfilePhoto(): string
+	{
 		return $this->_profilePhoto;
 	}
 
 	/**
+	 * Sets the profile image for the user
 	 * @param String $profilePhoto
 	 */
-	public function setProfilePhoto($profilePhoto): void {
+	public function setProfilePhoto($profilePhoto): void
+	{
 		$this->_profilePhoto=$profilePhoto;
 	}
 }
